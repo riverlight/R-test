@@ -20,7 +20,7 @@ output <- args[7]
 setwd("d://workroom//testroom")
 video <- read.table(input, header = TRUE, sep = ",")
 video$r1 <- video$tc / video$vv
-video$r2 <- video$lc / video$vv
+video$r2 <- video$lc / video$tc
 newdata <- video[order(-video$vv),]
 write.csv(newdata, output)
 summary(newdata)

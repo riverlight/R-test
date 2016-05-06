@@ -1,2 +1,2 @@
 
-rscript dg-stat.R dg20160414.csv dg20160414r.csv
+rscript dg-stat.R dg20160417.csv dg20160417r.csv

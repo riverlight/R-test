@@ -13,15 +13,21 @@ myDiv <- function(dura, cc) {
 	return (result)
 }
 
+
+library(rmongodb)
 args <- commandArgs()
 input <- args[6]
 output <- args[7]
 
 setwd("d://workroom//testroom")
+
+
 dg <- read.table(input, header = TRUE, sep = ",")
 dg$rate <- dg$lc / dg$tc
 dg$duraDcc <- myDiv(dg$dura , dg$cc)
+dg$ccDtc <- dg$cc /dg$tc
 newdata <- dg[order(-dg$tc),]
-newdata <- newdata[c("id", "tc", "lc", "rate", "cc", "dura", "duraDcc")]
+newdata <- newdata[c("id", "tc", "lc", "rate", "cc", "ccDtc", "dura", "duraDcc")]
 write.csv(newdata, output)
-summary(newdata)
+# summary(newdata)
+
